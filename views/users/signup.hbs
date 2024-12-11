@@ -16,3 +16,15 @@
     <input type="submit" value="Potvrdi" />
     <input type="reset" value="Poništi" />
 </form>
+
+{{#if error_validation}}
+<p>Dogodila se greška u provjeri podataka!</p>
+{{/if}}
+
+{{#if error_database}}
+<p>Dogodila se greška prilikom spremanja u bazu podataka!</p>
+{{/if}}
+
+{{#if success}}
+<p>Korisnik je uspješno registriran!</p>
+{{/if}}
