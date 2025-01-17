@@ -75,12 +75,17 @@ router.post("/signin", async function (req, res, next) {
       sameSite: "strict"
     });
 
-    res.render("users/signin", { success: true });
+    res.redirect("/");
   } catch (error) {
     res.render("users/signin", { error_database: true });
   } finally {
     conn.release();
   }
+});
+
+router.get("/signout", function (req, res, next) {
+  res.clearCookie("express-app-user");
+  res.redirect("/");
 });
 
 module.exports = router;
